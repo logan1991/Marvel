@@ -9,4 +9,4 @@
 /build
 /captures
 .externalNativeBuild
-/AppConst.kt
+/app/src/main/java/com/oskarszymczyk/marvel/AppConst.kt
