@@ -1,6 +1,8 @@
-package com.oskarszymczyk.marvel.rest
+package com.oskarszymczyk.core.rest
 
-import com.oskarszymczyk.marvel.AppConsts
+import com.oskarszymczyk.core.rest.NetworkManager.DIGEST_FORMAT
+import com.oskarszymczyk.core.rest.NetworkManager.MD5
+import com.oskarszymczyk.core.rest.NetworkManager.SEPARATOR
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
@@ -15,6 +17,9 @@ import java.security.MessageDigest
 @Module
 @Suppress("unused")
 object NetworkManager {
+    const val MD5 = "MD5"
+    const val SEPARATOR = ""
+    const val DIGEST_FORMAT = "%02x"
 
     @Provides
     @Reusable
@@ -28,7 +33,7 @@ object NetworkManager {
     @JvmStatic
     internal fun provideNetworkInterface(okHttpClient: OkHttpClient) =
             Retrofit.Builder()
-                    .baseUrl(AppConsts.BASE_URL)
+                    .baseUrl(CoreConst.BASE_URL)
                     .addConverterFactory(MoshiConverterFactory.create())
                     .client(okHttpClient)
                     .build()
@@ -42,11 +47,11 @@ object NetworkManager {
                         override fun intercept(chain: Interceptor.Chain): Response {
                             var request = chain.request()
                             val timeStamp = System.currentTimeMillis().toString();
-                            val hash = StringBuilder(timeStamp + AppConsts.PRIVATE_API_KEY + AppConsts.PUBLIC_API_KEY).toString().md5()
+                            val hash = StringBuilder(timeStamp + CoreConst.PRIVATE_API_KEY + CoreConst.PUBLIC_API_KEY).toString().md5()
                             val url = request.url().newBuilder()
-                                    .addQueryParameter(AppConsts.QUERY_TS, timeStamp)
-                                    .addQueryParameter(AppConsts.QUERY_API_HEY, AppConsts.PUBLIC_API_KEY)
-                                    .addQueryParameter(AppConsts.QUERY_HASH, hash)
+                                    .addQueryParameter(CoreConst.QUERY_TS, timeStamp)
+                                    .addQueryParameter(CoreConst.QUERY_API_HEY, CoreConst.PUBLIC_API_KEY)
+                                    .addQueryParameter(CoreConst.QUERY_HASH, hash)
                                     .build()
                             request = request.newBuilder().url(url).build()
                             return chain.proceed(request)
@@ -58,9 +63,9 @@ object NetworkManager {
 }
 
 fun String.md5(): String {
-    val md = MessageDigest.getInstance("MD5")
+    val md = MessageDigest.getInstance(MD5)
     val digested = md.digest(toByteArray())
-    return digested.joinToString("") {
-        String.format("%02x", it)
+    return digested.joinToString(SEPARATOR) {
+        String.format(DIGEST_FORMAT, it)
     }
 }

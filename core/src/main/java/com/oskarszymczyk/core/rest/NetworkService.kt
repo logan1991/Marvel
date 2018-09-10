@@ -1,7 +1,7 @@
-package com.oskarszymczyk.marvel.rest
+package com.oskarszymczyk.core.rest
 
-import com.oskarszymczyk.marvel.rest.models.Character
-import com.oskarszymczyk.marvel.rest.models.base.BaseResponse
+import com.oskarszymczyk.core.rest.models.Character
+import com.oskarszymczyk.core.rest.models.base.BaseResponse
 import retrofit2.Call
 import retrofit2.http.GET
 
