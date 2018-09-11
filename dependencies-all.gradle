@@ -1,0 +1,49 @@
+ext.deps = [
+
+        'build'   : [
+                'gradle'    : "com.android.tools.build:gradle:$versions.gradle_version",
+                'kotlin'    : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin_version",
+                'allopen'   : "org.jetbrains.kotlin:kotlin-allopen:$versions.kotlin_version",
+                'navigation': "android.arch.navigation:navigation-safe-args-gradle-plugin:$versions.navigation_version"
+        ],
+        'libs'    : fileTree(dir: 'libs', include: ['*.jar']),
+        'kotlin'  : [
+                'lib'       : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin_version",
+                'coroutines': "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines_version",
+                'ktx'       : "androidx.core:core-ktx:$versions.ktx_version",
+                'navigation': "android.arch.navigation:navigation-fragment-ktx:$versions.navigation_version"
+        ],
+        'support' : [
+                'app'       : "com.android.support:appcompat-v7:$versions.android_support",
+                'constraint': 'com.android.support.constraint:constraint-layout:1.1.2',
+                'lifecycle' : 'android.arch.lifecycle:extensions:1.1.1'
+        ],
+        'dagger'  : [
+                'dagger'   : "com.google.dagger:dagger:$versions.dagger2_version",
+                'compiler' : "com.google.dagger:dagger-compiler:$versions.dagger2_version",
+                'android'  : "com.google.dagger:dagger-android:$versions.dagger2_version",
+                'support'  : "com.google.dagger:dagger-android-support:$versions.dagger2_version",
+                'processor': "com.google.dagger:dagger-android-processor:$versions.dagger2_version",
+                'glassfish': 'org.glassfish:javax.annotation:3.1.1'
+        ],
+        'retrofit': [
+                'moshi'    : "com.squareup.moshi:moshi:$versions.moshi_version",
+                'retrofit' : "com.squareup.retrofit2:retrofit:$versions.retrofit_version",
+                'converter': "com.squareup.retrofit2:converter-moshi:$versions.retrofit_version",
+        ],
+        'okHttp'  : [
+                'okHttp' : "com.squareup.okhttp3:okhttp:$versions.okhttp_version",
+                'logging': "com.squareup.okhttp3:logging-interceptor:$versions.okhttp_version",
+        ],
+
+        'glide'   : [
+                'glide'   : "com.github.bumptech.glide:glide:$versions.glide_version",
+                'compiler': "com.github.bumptech.glide:compiler:$versions.glide_version"
+        ],
+        'test'    : [
+                'junit'   : 'junit:junit:4.12',
+                'runner'  : 'com.android.support.test:runner:1.0.2',
+                'espresso': 'com.android.support.test.espresso:espresso-core:3.0.2'
+        ]
+
+]

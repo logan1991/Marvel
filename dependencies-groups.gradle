@@ -1,0 +1,49 @@
+def Group(Closure closure) {
+    closure.delegate = dependencies
+    return closure
+}
+
+
+ext {
+
+    libraries = Group {
+        implementation deps.libs
+    }
+
+    kotlin = Group {
+        implementation deps.kotlin.lib
+        implementation deps.kotlin.ktx
+        implementation deps.kotlin.coroutines
+        implementation deps.kotlin.navigation
+    }
+    support = Group {
+        implementation deps.support.app
+        implementation deps.support.constraint
+        implementation deps.support.lifecycle
+    }
+    dagger = Group {
+        implementation deps.dagger.dagger
+        kapt deps.dagger.compiler
+        implementation deps.dagger.android
+        implementation deps.dagger.support
+        kapt deps.dagger.processor
+        compileOnly deps.dagger.glassfish
+    }
+    networking = Group {
+        implementation deps.retrofit.retrofit
+        implementation deps.retrofit.moshi
+        implementation deps.retrofit.converter
+
+        implementation deps.okHttp.okHttp
+        implementation deps.okHttp.logging
+    }
+    glide = Group {
+        implementation deps.glide.glide
+        kapt deps.glide.compiler
+    }
+    test = Group {
+        testImplementation deps.test.junit
+        androidTestImplementation deps.test.runner
+        androidTestImplementation deps.test.espresso
+    }
+}
