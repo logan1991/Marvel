@@ -6,20 +6,20 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.support.v4.app.FragmentManager
-import com.oskarszymczyk.marvel.MarvelApp
+import com.oskarszymczyk.marvel.SuHero
 import com.oskarszymczyk.marvel.base.Injectable
 import dagger.android.AndroidInjection
 import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.HasSupportFragmentInjector
 
 object AppInjector {
-    fun init(marvelApp: MarvelApp) {
+    fun init(suHero: SuHero) {
         DaggerAppComponent.builder()
-                .application(marvelApp)
+                .application(suHero)
                 .build()
-                .inject(marvelApp)
+                .inject(suHero)
 
-        marvelApp.registerActivityLifecycleCallbacks(object : Application.ActivityLifecycleCallbacks {
+        suHero.registerActivityLifecycleCallbacks(object : Application.ActivityLifecycleCallbacks {
             override fun onActivitySaveInstanceState(activity: Activity?, p1: Bundle?) {
             }
 

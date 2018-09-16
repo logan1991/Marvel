@@ -8,9 +8,9 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.oskarszymczyk.marvel.R
 import com.oskarszymczyk.marvel.base.Injectable
-import com.oskarszymczyk.marvel.databinding.WelcomeFragmentBinding
+import com.oskarszymczyk.suhero.R
+import com.oskarszymczyk.suhero.databinding.WelcomeFragmentBinding
 import javax.inject.Inject
 
 

@@ -2,7 +2,7 @@ package com.oskarszymczyk.marvel.ui.main
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.oskarszymczyk.marvel.R
+import com.oskarszymczyk.suhero.R
 
 class MainActivity : AppCompatActivity() {
 

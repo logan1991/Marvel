@@ -3,7 +3,7 @@ package com.oskarszymczyk.marvel.ui.welcome
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import com.oskarszymczyk.marvel.R
+import com.oskarszymczyk.suhero.R
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
