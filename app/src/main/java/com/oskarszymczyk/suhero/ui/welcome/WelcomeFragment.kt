@@ -1,4 +1,4 @@
-package com.oskarszymczyk.marvel.ui.welcome
+package com.oskarszymczyk.suhero.ui.welcome
 
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
@@ -8,8 +8,8 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.oskarszymczyk.marvel.base.Injectable
 import com.oskarszymczyk.suhero.R
+import com.oskarszymczyk.suhero.base.Injectable
 import com.oskarszymczyk.suhero.databinding.WelcomeFragmentBinding
 import javax.inject.Inject
 

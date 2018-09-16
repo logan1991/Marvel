@@ -1,6 +1,6 @@
-package com.oskarszymczyk.marvel.di_components
+package com.oskarszymczyk.suhero.di_components
 
-import com.oskarszymczyk.marvel.ui.welcome.WelcomeFragment
+import com.oskarszymczyk.suhero.ui.welcome.WelcomeFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

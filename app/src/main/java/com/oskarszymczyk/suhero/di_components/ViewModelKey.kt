@@ -1,4 +1,4 @@
-package com.oskarszymczyk.marvel.di_components
+package com.oskarszymczyk.suhero.di_components
 
 import android.arch.lifecycle.ViewModel
 import dagger.MapKey

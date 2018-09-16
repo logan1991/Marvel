@@ -1,8 +1,8 @@
-package com.oskarszymczyk.marvel.di_components
+package com.oskarszymczyk.suhero.di_components
 
 import android.app.Application
 import com.oskarszymczyk.core.rest.NetworkManager
-import com.oskarszymczyk.marvel.SuHero
+import com.oskarszymczyk.suhero.SuHero
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule

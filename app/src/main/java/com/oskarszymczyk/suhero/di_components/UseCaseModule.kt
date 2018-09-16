@@ -1,7 +1,7 @@
-package com.oskarszymczyk.marvel.di_components
+package com.oskarszymczyk.suhero.di_components
 
 import com.oskarszymczyk.core.rest.NetworkManager
-import com.oskarszymczyk.marvel.usecases.LoginUseCase
+import com.oskarszymczyk.suhero.usecases.LoginUseCase
 import dagger.Binds
 import dagger.Module
 

@@ -1,8 +1,8 @@
-package com.oskarszymczyk.marvel
+package com.oskarszymczyk.suhero
 
 import android.app.Activity
 import android.app.Application
-import com.oskarszymczyk.marvel.di_components.AppInjector
+import com.oskarszymczyk.suhero.di_components.AppInjector
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector

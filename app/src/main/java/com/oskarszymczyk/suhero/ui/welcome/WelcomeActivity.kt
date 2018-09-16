@@ -1,4 +1,4 @@
-package com.oskarszymczyk.marvel.ui.welcome
+package com.oskarszymczyk.suhero.ui.welcome
 
 import android.os.Bundle
 import android.support.v4.app.Fragment

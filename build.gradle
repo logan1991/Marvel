@@ -13,7 +13,6 @@ buildscript {
 
         classpath deps.build.gradle
         classpath deps.build.kotlin
-        classpath deps.build.allopen
         classpath deps.build.navigation
 
         // NOTE: Do not place your application dependencies here; they belong

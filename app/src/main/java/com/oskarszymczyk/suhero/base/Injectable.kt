@@ -1,4 +1,4 @@
-package com.oskarszymczyk.marvel.base
+package com.oskarszymczyk.suhero.base
 
 interface Injectable {
 }

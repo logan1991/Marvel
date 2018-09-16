@@ -6,14 +6,12 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
-apply plugin: 'kotlin-allopen'
-
 apply plugin: 'androidx.navigation.safeargs'
 
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.oskarszymczyk.marvel"
+        applicationId "com.oskarszymczyk.suhero"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1

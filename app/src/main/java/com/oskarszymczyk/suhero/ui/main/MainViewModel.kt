@@ -1,4 +1,4 @@
-package com.oskarszymczyk.marvel.ui.main
+package com.oskarszymczyk.suhero.ui.main
 
 import android.arch.lifecycle.ViewModel
 import android.databinding.ObservableField

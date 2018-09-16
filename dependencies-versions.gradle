@@ -1,13 +1,13 @@
 ext.versions = [
-        'gradle_version'    : '3.2.0-rc02',
-        'kotlin_version'    : '1.2.61',
-        'coroutines_version': '0.25.0',
-        'ktx_version'       : '0.1',
-        'dagger2_version'   : '2.16',
-        'glide_version'     : '4.8.0',
-        'android_support'   : '28.0.0-rc02',
-        'retrofit_version'  : '2.4.0',
-        'navigation_version': '1.0.0-alpha04',
-        'moshi_version'     : '1.6.0',
-        'okhttp_version'    : '3.4.1'
+        'gradle'    : '3.2.0-rc02',
+        'kotlin'    : '1.2.61',
+        'coroutines': '0.25.0',
+        'ktx'       : '0.1',
+        'dagger2'   : '2.16',
+        'glide'     : '4.8.0',
+        'android'   : '28.0.0-rc02',
+        'retrofit'  : '2.4.0',
+        'navigation': '1.0.0-alpha04',
+        'moshi'     : '1.6.0',
+        'okhttp'    : '3.4.1'
 ]

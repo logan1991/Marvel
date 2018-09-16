@@ -1,4 +1,4 @@
-package com.oskarszymczyk.marvel.di_components
+package com.oskarszymczyk.suhero.di_components
 
 import android.app.Activity
 import android.app.Application
@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.support.v4.app.FragmentManager
-import com.oskarszymczyk.marvel.SuHero
-import com.oskarszymczyk.marvel.base.Injectable
+import com.oskarszymczyk.suhero.SuHero
+import com.oskarszymczyk.suhero.base.Injectable
 import dagger.android.AndroidInjection
 import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.HasSupportFragmentInjector

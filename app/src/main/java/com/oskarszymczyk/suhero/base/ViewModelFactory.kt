@@ -1,4 +1,4 @@
-package com.oskarszymczyk.marvel.base
+package com.oskarszymczyk.suhero.base
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider

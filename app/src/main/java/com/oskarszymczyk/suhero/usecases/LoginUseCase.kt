@@ -1,4 +1,4 @@
-package com.oskarszymczyk.marvel.usecases
+package com.oskarszymczyk.suhero.usecases
 
 import com.oskarszymczyk.core.rest.NetworkService
 import javax.inject.Inject
