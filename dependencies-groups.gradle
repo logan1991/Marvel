@@ -21,6 +21,10 @@ ext {
         implementation deps.support.constraint
         implementation deps.support.lifecycle
     }
+    firebase = Group {
+        implementation deps.firebase.firebase
+        implementation deps.firebase.crashlytics
+    }
     dagger = Group {
         implementation deps.dagger.dagger
         kapt deps.dagger.compiler

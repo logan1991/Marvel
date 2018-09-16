@@ -1,12 +1,14 @@
 ext.deps = [
 
         'build'   : [
-                'gradle'    : "com.android.tools.build:gradle:$versions.gradle_version",
-                'kotlin'    : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin_version",
-                'allopen'   : "org.jetbrains.kotlin:kotlin-allopen:$versions.kotlin_version",
-                'navigation': "android.arch.navigation:navigation-safe-args-gradle-plugin:$versions.navigation_version"
+                'gradle'         : "com.android.tools.build:gradle:$versions.gradle_version",
+                'kotlin'         : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin_version",
+                'allopen'        : "org.jetbrains.kotlin:kotlin-allopen:$versions.kotlin_version",
+                'navigation'     : "android.arch.navigation:navigation-safe-args-gradle-plugin:$versions.navigation_version",
+                'google_services': "com.google.gms:google-services:$versions.google_services_version",
         ],
         'libs'    : fileTree(dir: 'libs', include: ['*.jar']),
+
         'kotlin'  : [
                 'lib'       : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin_version",
                 'coroutines': "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines_version",
@@ -39,6 +41,10 @@ ext.deps = [
         'glide'   : [
                 'glide'   : "com.github.bumptech.glide:glide:$versions.glide_version",
                 'compiler': "com.github.bumptech.glide:compiler:$versions.glide_version"
+        ],
+        'firebase': [
+                'firebase'   : "com.google.firebase:firebase-core:$versions.firebase_version",
+                'crashlytics': 'com.crashlytics.sdk.android:crashlytics:2.9.5'
         ],
         'test'    : [
                 'junit'   : 'junit:junit:4.12',

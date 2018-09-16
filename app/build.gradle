@@ -10,6 +10,8 @@ apply plugin: 'kotlin-allopen'
 
 apply plugin: 'androidx.navigation.safeargs'
 
+apply plugin: 'com.google.gms.google-services'
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -39,6 +41,6 @@ dependencies {
     dagger()
     networking()
     test()
-
+    firebase()
     implementation project(':core')
 }
