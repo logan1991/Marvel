@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="com.oskarszymczyk.marvel.ui.main.MainViewModel" />
+            type="com.oskarszymczyk.suhero.ui.main.MainViewModel" />
     </data>
 
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"

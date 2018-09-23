@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.oskarszymczyk.marvel.ui.welcome.WelcomeFragment"
+        android:name="com.oskarszymczyk.suhero.ui.welcome.WelcomeFragment"
         android:label="WelcomeFragment">
 
     </fragment>

@@ -1,46 +1,44 @@
 ext.deps = [
 
         'build'   : [
-                'gradle'         : "com.android.tools.build:gradle:$versions.gradle_version",
-                'kotlin'         : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin_version",
-                'allopen'        : "org.jetbrains.kotlin:kotlin-allopen:$versions.kotlin_version",
-                'navigation'     : "android.arch.navigation:navigation-safe-args-gradle-plugin:$versions.navigation_version",
-                'google_services': "com.google.gms:google-services:$versions.google_services_version",
+                'gradle'    : "com.android.tools.build:gradle:$versions.gradle",
+                'kotlin'    : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+                'navigation': "android.arch.navigation:navigation-safe-args-gradle-plugin:$versions.navigation"
         ],
         'libs'    : fileTree(dir: 'libs', include: ['*.jar']),
 
         'kotlin'  : [
-                'lib'       : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin_version",
-                'coroutines': "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines_version",
-                'ktx'       : "androidx.core:core-ktx:$versions.ktx_version",
-                'navigation': "android.arch.navigation:navigation-fragment-ktx:$versions.navigation_version"
+                'lib'       : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin",
+                'coroutines': "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines",
+                'ktx'       : "androidx.core:core-ktx:$versions.ktx",
+                'navigation': "android.arch.navigation:navigation-fragment-ktx:$versions.navigation"
         ],
         'support' : [
-                'app'       : "com.android.support:appcompat-v7:$versions.android_support",
+                'app'       : "com.android.support:appcompat-v7:$versions.android",
                 'constraint': 'com.android.support.constraint:constraint-layout:1.1.2',
                 'lifecycle' : 'android.arch.lifecycle:extensions:1.1.1'
         ],
         'dagger'  : [
-                'dagger'   : "com.google.dagger:dagger:$versions.dagger2_version",
-                'compiler' : "com.google.dagger:dagger-compiler:$versions.dagger2_version",
-                'android'  : "com.google.dagger:dagger-android:$versions.dagger2_version",
-                'support'  : "com.google.dagger:dagger-android-support:$versions.dagger2_version",
-                'processor': "com.google.dagger:dagger-android-processor:$versions.dagger2_version",
+                'dagger'   : "com.google.dagger:dagger:$versions.dagger2",
+                'compiler' : "com.google.dagger:dagger-compiler:$versions.dagger2",
+                'android'  : "com.google.dagger:dagger-android:$versions.dagger2",
+                'support'  : "com.google.dagger:dagger-android-support:$versions.dagger2",
+                'processor': "com.google.dagger:dagger-android-processor:$versions.dagger2",
                 'glassfish': 'org.glassfish:javax.annotation:3.1.1'
         ],
         'retrofit': [
-                'moshi'    : "com.squareup.moshi:moshi:$versions.moshi_version",
-                'retrofit' : "com.squareup.retrofit2:retrofit:$versions.retrofit_version",
-                'converter': "com.squareup.retrofit2:converter-moshi:$versions.retrofit_version",
+                'moshi'    : "com.squareup.moshi:moshi:$versions.moshi",
+                'retrofit' : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+                'converter': "com.squareup.retrofit2:converter-moshi:$versions.retrofit",
         ],
         'okHttp'  : [
-                'okHttp' : "com.squareup.okhttp3:okhttp:$versions.okhttp_version",
-                'logging': "com.squareup.okhttp3:logging-interceptor:$versions.okhttp_version",
+                'okHttp' : "com.squareup.okhttp3:okhttp:$versions.okhttp",
+                'logging': "com.squareup.okhttp3:logging-interceptor:$versions.okhttp",
         ],
 
         'glide'   : [
-                'glide'   : "com.github.bumptech.glide:glide:$versions.glide_version",
-                'compiler': "com.github.bumptech.glide:compiler:$versions.glide_version"
+                'glide'   : "com.github.bumptech.glide:glide:$versions.glide",
+                'compiler': "com.github.bumptech.glide:compiler:$versions.glide"
         ],
         'firebase': [
                 'firebase'   : "com.google.firebase:firebase-core:$versions.firebase_version",
