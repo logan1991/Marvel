@@ -1,8 +1,8 @@
 package com.oskarszymczyk.suhero.di_components
 
 import android.app.Application
-import com.oskarszymczyk.core.rest.NetworkManager
-import com.oskarszymczyk.suhero.SuHero
+import com.oskarszymczyk.core.rest.NetworkModule
+import com.oskarszymczyk.suhero.SuHeroApplication
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -13,7 +13,7 @@ import javax.inject.Singleton
         modules = [
             AndroidInjectionModule::class,
             ViewModelModule::class,
-            NetworkManager::class,
+            NetworkModule::class,
             WelcomeActivityModule::class]
 )
 interface AppComponent {
@@ -25,5 +25,5 @@ interface AppComponent {
         fun build(): AppComponent
     }
 
-    fun inject(suHero: SuHero)
+    fun inject(suHeroApplication: SuHeroApplication)
 }

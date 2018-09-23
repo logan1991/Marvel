@@ -6,6 +6,6 @@ import javax.inject.Inject
 class LoginUseCase @Inject constructor(private val networkService: NetworkService) {
 
     fun login() {
-        println("TODO")
+        //todo
     }
 }

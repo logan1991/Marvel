@@ -1,11 +1,11 @@
 package com.oskarszymczyk.suhero.di_components
 
-import com.oskarszymczyk.core.rest.NetworkManager
+import com.oskarszymczyk.core.rest.NetworkModule
 import com.oskarszymczyk.suhero.usecases.LoginUseCase
 import dagger.Binds
 import dagger.Module
 
-@Module(includes = [NetworkManager::class])
+@Module(includes = [NetworkModule::class])
 abstract class UseCaseModule {
 
     @Binds

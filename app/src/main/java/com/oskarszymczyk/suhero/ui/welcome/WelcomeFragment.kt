@@ -1,7 +1,6 @@
 package com.oskarszymczyk.suhero.ui.welcome
 
 import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -11,6 +10,7 @@ import android.view.ViewGroup
 import com.oskarszymczyk.suhero.R
 import com.oskarszymczyk.suhero.base.Injectable
 import com.oskarszymczyk.suhero.databinding.WelcomeFragmentBinding
+import com.oskarszymczyk.suhero.extensions.createVieModel
 import javax.inject.Inject
 
 
@@ -35,8 +35,8 @@ class WelcomeFragment : Fragment(), Injectable {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        welcomeViewModel = ViewModelProviders.of(this, viewModelFactory).get(WelcomeViewModel::class.java)
-
+        welcomeViewModel = createVieModel(viewModelFactory, WelcomeViewModel::class.java)
     }
 
 }
+
