@@ -1,9 +1,12 @@
 ext.deps = [
 
         'build'   : [
-                'gradle'    : "com.android.tools.build:gradle:$versions.gradle",
-                'kotlin'    : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
-                'navigation': "android.arch.navigation:navigation-safe-args-gradle-plugin:$versions.navigation"
+                'gradle'         : "com.android.tools.build:gradle:$versions.gradle",
+                'kotlin'         : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+                'navigation'     : "android.arch.navigation:navigation-safe-args-gradle-plugin:$versions.navigation",
+                'google_services': "com.google.gms:google-services:$versions.google_services",
+                'fabric'         : "io.fabric.tools:gradle:$versions.fabric"
+
         ],
         'libs'    : fileTree(dir: 'libs', include: ['*.jar']),
 
@@ -41,8 +44,8 @@ ext.deps = [
                 'compiler': "com.github.bumptech.glide:compiler:$versions.glide"
         ],
         'firebase': [
-                'firebase'   : "com.google.firebase:firebase-core:$versions.firebase_version",
-                'crashlytics': 'com.crashlytics.sdk.android:crashlytics:2.9.5'
+                'firebase'   : "com.google.firebase:firebase-core:$versions.firebase",
+                'crashlytics': "com.crashlytics.sdk.android:crashlytics:$versions.crashlytics"
         ],
         'test'    : [
                 'junit'   : 'junit:junit:4.12',

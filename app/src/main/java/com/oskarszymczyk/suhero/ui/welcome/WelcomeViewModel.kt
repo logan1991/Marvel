@@ -7,7 +7,6 @@ import javax.inject.Inject
 class WelcomeViewModel @Inject constructor(loginUseCase: LoginUseCase) : ViewModel() {
 
     init {
-        throw RuntimeException("TestCrash")
         loginUseCase.login()
     }
 }

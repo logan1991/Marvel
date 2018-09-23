@@ -23,7 +23,9 @@ ext {
     }
     firebase = Group {
         implementation deps.firebase.firebase
-        implementation deps.firebase.crashlytics
+        implementation(deps.firebase.crashlytics) {
+            transitive = true
+        }
     }
     dagger = Group {
         implementation deps.dagger.dagger

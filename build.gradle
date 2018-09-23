@@ -6,6 +6,7 @@ buildscript {
         google()
         jcenter()
         mavenCentral()
+        maven { url 'https://maven.fabric.io/public' }
     }
     dependencies {
         apply from: 'dependencies-versions.gradle'
@@ -14,6 +15,8 @@ buildscript {
         classpath deps.build.gradle
         classpath deps.build.kotlin
         classpath deps.build.navigation
+        classpath deps.build.google_services
+        classpath deps.build.fabric
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -25,6 +28,7 @@ allprojects {
         google()
         jcenter()
         mavenCentral()
+        maven { url 'https://maven.fabric.io/public' }
     }
     dependencies { apply from: "$rootProject.rootDir/dependencies-groups.gradle" }
 }

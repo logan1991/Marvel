@@ -20,10 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="c949e71651a48f89aea1362550d15d264fb91e7d" />
     </application>
-
-    <meta-data
-        android:name="firebase_crashlytics_collection_enabled"
-        android:value="false" />
-
 </manifest>
