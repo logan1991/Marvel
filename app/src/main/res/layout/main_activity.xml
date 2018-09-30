@@ -10,7 +10,7 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:navGraph="@navigation/welcome"
+        app:navGraph="@navigation/main"
         app:defaultNavHost="true"
         android:id="@+id/container" />
 </FrameLayout>

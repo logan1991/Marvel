@@ -13,11 +13,14 @@ import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.HasSupportFragmentInjector
 
 object AppInjector {
+
+    private var appComponent: AppComponent? = null
+
     fun init(suHeroApplication: SuHeroApplication) {
-        DaggerAppComponent.builder()
+        appComponent = DaggerAppComponent.builder()
                 .application(suHeroApplication)
                 .build()
-                .inject(suHeroApplication)
+        appComponent!!.inject(suHeroApplication)
 
         suHeroApplication.registerActivityLifecycleCallbacks(object : Application.ActivityLifecycleCallbacks {
             override fun onActivitySaveInstanceState(activity: Activity?, p1: Bundle?) {
@@ -42,9 +45,13 @@ object AppInjector {
             override fun onActivityCreated(activity: Activity, bundle: Bundle?) {
                 handleActivity(activity)
             }
-
         })
     }
+
+    fun getViewModelFactory() = appComponent!!.viewModelFactory()
+
+    fun getNavigationFactory() = appComponent!!.navigationFactory()
+
 
     private fun handleActivity(activity: Activity) {
         if (activity is HasSupportFragmentInjector) {

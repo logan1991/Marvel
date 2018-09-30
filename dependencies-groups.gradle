@@ -38,7 +38,9 @@ ext {
     networking = Group {
         implementation deps.retrofit.retrofit
         implementation deps.retrofit.moshi
+
         implementation deps.retrofit.converter
+        implementation deps.retrofit.coroutines_adapter
 
         implementation deps.okHttp.okHttp
         implementation deps.okHttp.logging
