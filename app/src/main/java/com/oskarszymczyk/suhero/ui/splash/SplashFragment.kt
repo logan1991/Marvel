@@ -2,7 +2,6 @@ package com.oskarszymczyk.suhero.ui.splash
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,25 +10,32 @@ import com.oskarszymczyk.suhero.base.Injectable
 import com.oskarszymczyk.suhero.databinding.SplashFragmentBinding
 import com.oskarszymczyk.suhero.extensions.hideToolbar
 import com.oskarszymczyk.suhero.extensions.setNavController
-import com.oskarszymczyk.suhero.extensions.viewModelDelegate
+import dagger.android.support.DaggerFragment
+import javax.inject.Inject
 
-class SplashFragment : Fragment(), Injectable {
+class SplashFragment : DaggerFragment(), Injectable {
 
-    private val viewModel: SplashViewModel by viewModelDelegate()
+    @Inject
+    lateinit var viewModel: SplashViewModel
+
 
     private lateinit var splashFragmentBinding: SplashFragmentBinding
 
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setNavController()
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+
+
         hideToolbar()
         splashFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.splash_fragment, container, false)
-        setNavController()
+
+        splashFragmentBinding.viewModel = viewModel
+
+        viewModel.changeScreen()
         return splashFragmentBinding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        splashFragmentBinding.viewModel = viewModel
-    }
 }

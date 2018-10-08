@@ -3,7 +3,6 @@ package com.oskarszymczyk.suhero.ui.welcome
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.constraint.ConstraintSet
-import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.transition.AutoTransition
 import android.transition.TransitionManager
@@ -14,15 +13,16 @@ import com.oskarszymczyk.suhero.R
 import com.oskarszymczyk.suhero.base.Injectable
 import com.oskarszymczyk.suhero.databinding.WelcomeFragmentInitBinding
 import com.oskarszymczyk.suhero.extensions.showToolbar
-import com.oskarszymczyk.suhero.extensions.viewModelDelegate
 import com.oskarszymczyk.suhero.ui.adapters.WelcomeAdapter
 import com.oskarszymczyk.suhero.ui.utils.InfiniteScrollListener
+import dagger.android.support.DaggerFragment
+import javax.inject.Inject
 
 
-class WelcomeFragment : Fragment(), Injectable {
+class WelcomeFragment : DaggerFragment(), Injectable {
 
-
-    val welcomeViewModel: WelcomeViewModel by viewModelDelegate()
+    @Inject
+    lateinit var viewModel: WelcomeViewModel
 
     private lateinit var welcomeFragmentBinding: WelcomeFragmentInitBinding
 
@@ -30,10 +30,12 @@ class WelcomeFragment : Fragment(), Injectable {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
+
+
         welcomeFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.welcome_fragment_init, container, false)
         showToolbar()
 
-        welcomeFragmentBinding.viewModel = welcomeViewModel
+        welcomeFragmentBinding.viewModel = viewModel
         initRecyclerView()
 
         return welcomeFragmentBinding.root
@@ -60,7 +62,7 @@ class WelcomeFragment : Fragment(), Injectable {
         welcomeFragmentBinding.welcomeRecyclerView.layoutManager = recyclerviewLayoutManager
         welcomeFragmentBinding.welcomeRecyclerView.adapter = recyclerViewAdapter
 
-        welcomeFragmentBinding.welcomeRecyclerView.addOnScrollListener(InfiniteScrollListener { welcomeViewModel.lastItemIsVisible() })
+        welcomeFragmentBinding.welcomeRecyclerView.addOnScrollListener(InfiniteScrollListener { viewModel.lastItemIsVisible() })
     }
 
 }

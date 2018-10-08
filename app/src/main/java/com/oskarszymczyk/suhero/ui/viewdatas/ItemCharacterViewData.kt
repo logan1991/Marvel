@@ -1,9 +1,9 @@
-package com.oskarszymczyk.suhero.ui.viewmodels
+package com.oskarszymczyk.suhero.ui.viewdatas
 
 import android.databinding.ObservableField
 import com.oskarszymczyk.suhero.data.Superhero
 
-class ItemCharacterViewModel {
+class ItemCharacterViewData {
     val heroName: ObservableField<String> = ObservableField()
     val imageUrl: ObservableField<String> = ObservableField()
 

@@ -6,5 +6,5 @@ import com.oskarszymczyk.suhero.di_components.AppInjector
 
 fun ViewModel.getNavController(): NavController {
     val factory = AppInjector.getNavigationFactory()
-    return factory.getSpecyficNavController()
+    return factory.navController
 }

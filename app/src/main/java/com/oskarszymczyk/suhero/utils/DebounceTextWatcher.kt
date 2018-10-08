@@ -1,11 +1,13 @@
-package com.oskarszymczyk.suhero.usecases
+package com.oskarszymczyk.suhero.utils
 
 import java.util.*
 import javax.inject.Inject
 
-class TimerAfterInputUseCase @Inject constructor() {
+class DebounceTextWatcher {
+
     private val TIMER_DELAY_IN_MILLIS = 1000L
     private var timer: Timer = Timer()
+
 
     fun waitForInputFinished(function: () -> Unit) {
         timer.cancel()

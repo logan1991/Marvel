@@ -6,9 +6,7 @@ import androidx.navigation.fragment.NavHostFragment
 
 class NavigationFactory {
 
-    var navController: NavController? = null
-
-    fun getSpecyficNavController() = navController!!
+    lateinit var navController: NavController
 
     fun createNavController(fragment: Fragment){
         navController = NavHostFragment.findNavController(fragment)

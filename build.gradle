@@ -12,7 +12,7 @@ buildscript {
         apply from: 'dependencies-versions.gradle'
         apply from: 'dependencies-all.gradle'
 
-        classpath deps.build.gradle
+        classpath "com.android.tools.build:gradle:3.2.0"
         classpath deps.build.kotlin
         classpath deps.build.navigation
         classpath deps.build.google_services

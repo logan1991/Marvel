@@ -10,6 +10,6 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideNavigationFactory() : NavigationFactory = NavigationFactory()
+    fun provideNavigationFactory(): NavigationFactory = NavigationFactory()
 
 }

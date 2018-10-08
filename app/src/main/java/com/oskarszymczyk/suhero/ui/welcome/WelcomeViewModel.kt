@@ -2,53 +2,85 @@ package com.oskarszymczyk.suhero.ui.welcome
 
 import android.arch.lifecycle.ViewModel
 import android.databinding.ObservableArrayList
+import android.databinding.ObservableBoolean
 import android.databinding.ObservableList
+import android.util.Log
 import com.oskarszymczyk.suhero.data.Superhero
-import com.oskarszymczyk.suhero.usecases.GetFavouriteSuperheroUseCase
-import com.oskarszymczyk.suhero.usecases.ListPaginationUseCase
-import com.oskarszymczyk.suhero.usecases.TimerAfterInputUseCase
+import com.oskarszymczyk.suhero.data.SuperheroResponse
+import com.oskarszymczyk.suhero.usecases.GetFirstSuperheroPageUseCase
+import com.oskarszymczyk.suhero.usecases.GetSuperheroListUseCase
+import com.oskarszymczyk.suhero.utils.DebounceTextWatcher
+import kotlinx.coroutines.experimental.Job
+import kotlinx.coroutines.experimental.cancelChildren
 import kotlinx.coroutines.experimental.launch
 import javax.inject.Inject
 
 class WelcomeViewModel @Inject constructor(
-        private val getFavouriteSuperheroUseCase: GetFavouriteSuperheroUseCase,
-        private val timerAfterInputUseCase: TimerAfterInputUseCase,
-        private val listPaginationUseCase: ListPaginationUseCase) : ViewModel() {
+        private val getFirstSuperheroPage: GetFirstSuperheroPageUseCase,
+        private val getSuperheroList: GetSuperheroListUseCase) : ViewModel() {
 
-    val listData: ObservableList<Superhero> = ObservableArrayList()
-    private lateinit var currentQuery: String
+
+    val listData: ObservableList<Superhero> = ObservableArrayList<Superhero>()
+    val showScreenProgress = ObservableBoolean(false)
+
+    //nie wiem czy to nie powinno byc Injectowane ?
+    private val debounceTextWatcher: DebounceTextWatcher = DebounceTextWatcher()
+    private val job = Job()
+    private lateinit var lastQuery: String
+
 
     fun onTextChanged(userInput: CharSequence) {
-        timerAfterInputUseCase.waitForInputFinished { startDownloadCharacterList(userInput.toString()) }
+        debounceTextWatcher.waitForInputFinished { startDownloadCharacterList(userInput.toString()) }
     }
-
 
     private fun startDownloadCharacterList(query: String) {
         if (query.isNotBlank()) {
-            getCharacters(query, 0)
-        }
-    }
-
-    private fun getCharacters(query: String, offset: Int) {
-        launch {
-            currentQuery = query
-            val results = getFavouriteSuperheroUseCase.findFavouriteCharacter(query, offset)
-            if (results.total != null) {
-                listPaginationUseCase.totalCount = results.total
+            showScreenProgress.set(true)
+            launch(job){
+                lastQuery = query
+                listData.clear()
+                handleResponse(getFirstSuperheroPage.execute(lastQuery))
             }
-            listPaginationUseCase.actualCount = results.data.size
-            resetResultsWhenNewQuery(offset)
-            listData.addAll(results.data)
         }
     }
 
-    private fun resetResultsWhenNewQuery(offset: Int) {
-        if (offset == 0) {
-            listData.clear()
+
+    private fun handleResponse(superheroResponse: SuperheroResponse){
+        when(superheroResponse){
+            is SuperheroResponse.Results -> showData(superheroResponse.superheroList)
+            is SuperheroResponse.Error -> showErrorMessage(superheroResponse.errorMessage)
+            is SuperheroResponse.NoMoreData -> hideProgressFromList()
+            is SuperheroResponse.Empty -> showEmptyView()
         }
+    }
+
+    private fun hideProgressFromList() {
+        //todo
+    }
+
+    fun showData(superheroList: List<Superhero>){
+        showScreenProgress.set(false)
+        listData.addAll(superheroList)
+    }
+
+    fun showEmptyView(){
+        //todo
+    }
+
+    fun showErrorMessage(message:String){
+        //todo
     }
 
     fun lastItemIsVisible() {
-        listPaginationUseCase.execute { getCharacters(currentQuery, listPaginationUseCase.actualCount) }
+        launch(job) {
+            handleResponse(getSuperheroList.execute())
+        }
     }
+
+    override fun onCleared() {
+        job.cancelChildren()
+        super.onCleared()
+    }
+
+
 }

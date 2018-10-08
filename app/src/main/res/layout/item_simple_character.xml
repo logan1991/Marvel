@@ -6,7 +6,7 @@
 
         <variable
             name="characterItem"
-            type="com.oskarszymczyk.suhero.ui.viewmodels.ItemCharacterViewModel" />
+            type="com.oskarszymczyk.suhero.ui.viewdatas.ItemCharacterViewData" />
     </data>
 
     <android.support.constraint.ConstraintLayout

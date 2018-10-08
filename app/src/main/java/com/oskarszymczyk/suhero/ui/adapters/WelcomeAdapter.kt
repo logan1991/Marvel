@@ -8,7 +8,7 @@ import com.oskarszymczyk.suhero.R
 import com.oskarszymczyk.suhero.data.Superhero
 import com.oskarszymczyk.suhero.databinding.ItemSimpleCharacterBinding
 import com.oskarszymczyk.suhero.ui.Refreshable
-import com.oskarszymczyk.suhero.ui.viewmodels.ItemCharacterViewModel
+import com.oskarszymczyk.suhero.ui.viewdatas.ItemCharacterViewData
 
 class WelcomeAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), Refreshable {
 
@@ -39,7 +39,7 @@ class WelcomeAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), Refresha
 
         fun bind(superhero: Superhero) {
             if (itemSimpleCharacterBinding.characterItem == null) {
-                itemSimpleCharacterBinding.characterItem = ItemCharacterViewModel()
+                itemSimpleCharacterBinding.characterItem = ItemCharacterViewData()
             }
             itemSimpleCharacterBinding.characterItem!!.initView(superhero)
         }

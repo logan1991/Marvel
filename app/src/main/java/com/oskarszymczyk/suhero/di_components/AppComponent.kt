@@ -9,21 +9,22 @@ import com.oskarszymczyk.suhero.SuHeroApplication
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
+import dagger.android.AndroidInjector
+import dagger.android.DaggerApplication
+import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
 
 @Component(
         modules = [
             AppModule::class,
-            AndroidInjectionModule::class,
-            ViewModelModule::class,
+            AndroidSupportInjectionModule::class,
             NetworkModule::class,
             SharedPreferencesModule::class,
             MainActivityModule::class]
 )
 @Singleton
-interface AppComponent {
-    fun viewModelFactory(): ViewModelProvider.Factory
+interface AppComponent : AndroidInjector<DaggerApplication>{
     fun navigationFactory(): NavigationFactory
 
 
@@ -37,4 +38,6 @@ interface AppComponent {
 
     fun inject(suHeroApplication: SuHeroApplication)
 
+    override
+    fun inject(instance: DaggerApplication)
 }

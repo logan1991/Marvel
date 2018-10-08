@@ -10,6 +10,7 @@ data class CharacterDataWrapper(
 
 data class CharacterDataContainer(
         @field:Json(name = "total") val totalResults: Int?,
+        @field:Json(name = "count") val countResults: Int?,
         @field:Json(name = "results") val characterList: List<Character>
 )
 
