@@ -7,6 +7,4 @@ class GetSuperheroListUseCase @Inject constructor(private val superheroList: Sup
 
     suspend fun execute() =
         superheroList.getNextPage()
-
-
 }

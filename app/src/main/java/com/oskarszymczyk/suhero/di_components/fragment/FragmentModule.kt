@@ -10,5 +10,5 @@ class FragmentModule{
 
     @Provides
     @FragmentScope
-    fun provideDownloadSuperHeroList(networkService: NetworkService) = SuperheroListRepository(networkService)
+    fun provideSuperheroListRepository(networkService: NetworkService) = SuperheroListRepository(networkService)
 }

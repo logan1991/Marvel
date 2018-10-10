@@ -4,12 +4,11 @@ import android.arch.lifecycle.ViewModel
 import android.databinding.ObservableArrayList
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableList
-import android.util.Log
 import com.oskarszymczyk.suhero.data.Superhero
 import com.oskarszymczyk.suhero.data.SuperheroResponse
 import com.oskarszymczyk.suhero.usecases.GetFirstSuperheroPageUseCase
 import com.oskarszymczyk.suhero.usecases.GetSuperheroListUseCase
-import com.oskarszymczyk.suhero.utils.DebounceTextWatcher
+import com.oskarszymczyk.suhero.utils.UserInputCallback
 import kotlinx.coroutines.experimental.Job
 import kotlinx.coroutines.experimental.cancelChildren
 import kotlinx.coroutines.experimental.launch
@@ -17,20 +16,19 @@ import javax.inject.Inject
 
 class WelcomeViewModel @Inject constructor(
         private val getFirstSuperheroPage: GetFirstSuperheroPageUseCase,
-        private val getSuperheroList: GetSuperheroListUseCase) : ViewModel() {
+        private val getSuperheroList: GetSuperheroListUseCase,
+        private val userInputCallback: UserInputCallback) : ViewModel() {
 
 
     val listData: ObservableList<Superhero> = ObservableArrayList<Superhero>()
     val showScreenProgress = ObservableBoolean(false)
 
-    //nie wiem czy to nie powinno byc Injectowane ?
-    private val debounceTextWatcher: DebounceTextWatcher = DebounceTextWatcher()
     private val job = Job()
     private lateinit var lastQuery: String
 
 
     fun onTextChanged(userInput: CharSequence) {
-        debounceTextWatcher.waitForInputFinished { startDownloadCharacterList(userInput.toString()) }
+        userInputCallback.waitForInputFinished { startDownloadCharacterList(userInput.toString()) }
     }
 
     private fun startDownloadCharacterList(query: String) {
@@ -81,6 +79,4 @@ class WelcomeViewModel @Inject constructor(
         job.cancelChildren()
         super.onCleared()
     }
-
-
 }

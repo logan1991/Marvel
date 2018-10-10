@@ -9,7 +9,7 @@ import com.oskarszymczyk.suhero.ui.Refreshable
 
 @BindingAdapter("app:recyclerviewList")
 fun <T> RecyclerView.recyclerviewList(list: List<T>) {
-    adapter.let { (adapter as? Refreshable)?.refreshData(list) }
+    (adapter as? Refreshable)?.refreshData(list)
 }
 
 @BindingAdapter("app:insertImage")

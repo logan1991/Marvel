@@ -20,7 +20,7 @@ class SuperheroListRepository(private val networkService: NetworkService) {
 
     lateinit var nameStartWith: String
 
-    suspend fun getList(nameStartWith: String): SuperheroResponse {
+    suspend fun getInitData(nameStartWith: String): SuperheroResponse {
         offset = 0
         this.nameStartWith = nameStartWith
         return try {
