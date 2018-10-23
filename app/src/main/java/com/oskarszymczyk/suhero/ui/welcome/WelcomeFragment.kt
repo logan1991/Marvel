@@ -2,6 +2,7 @@ package com.oskarszymczyk.suhero.ui.welcome
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
+import android.support.annotation.UiThread
 import android.support.constraint.ConstraintSet
 import android.support.v7.widget.LinearLayoutManager
 import android.transition.AutoTransition
@@ -9,8 +10,10 @@ import android.transition.TransitionManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.oskarszymczyk.suhero.R
 import com.oskarszymczyk.suhero.base.Injectable
+import com.oskarszymczyk.suhero.data.Superhero
 import com.oskarszymczyk.suhero.databinding.WelcomeFragmentInitBinding
 import com.oskarszymczyk.suhero.extensions.showToolbar
 import com.oskarszymczyk.suhero.ui.adapters.WelcomeAdapter
@@ -23,6 +26,9 @@ class WelcomeFragment : DaggerFragment(), Injectable {
 
     @Inject
     lateinit var viewModel: WelcomeViewModel
+
+    @Inject
+    lateinit var welcomeAdapter: WelcomeAdapter
 
     private lateinit var welcomeFragmentBinding: WelcomeFragmentInitBinding
 
@@ -37,6 +43,12 @@ class WelcomeFragment : DaggerFragment(), Injectable {
 
         welcomeFragmentBinding.viewModel = viewModel
         initRecyclerView()
+
+
+        //todo change it to interface
+        viewModel.noMoreData = noMoreData
+        viewModel.resetAdapterData = resetAdapterData
+        viewModel.showToast = showToast
 
         return welcomeFragmentBinding.root
     }
@@ -58,12 +70,21 @@ class WelcomeFragment : DaggerFragment(), Injectable {
 
     private fun initRecyclerView() {
         val recyclerviewLayoutManager = LinearLayoutManager(context)
-        val recyclerViewAdapter = WelcomeAdapter()
         welcomeFragmentBinding.welcomeRecyclerView.layoutManager = recyclerviewLayoutManager
-        welcomeFragmentBinding.welcomeRecyclerView.adapter = recyclerViewAdapter
-
+        welcomeFragmentBinding.welcomeRecyclerView.adapter = welcomeAdapter
         welcomeFragmentBinding.welcomeRecyclerView.addOnScrollListener(InfiniteScrollListener { viewModel.lastItemIsVisible() })
     }
 
+    val noMoreData:()->Unit = {
+        welcomeAdapter.endOfData = true
+    }
+
+    val resetAdapterData:()->Unit = {
+        welcomeAdapter.reinitData()
+    }
+
+    val showToast: (String)->Unit = {
+        Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+    }
 }
 

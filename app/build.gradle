@@ -44,5 +44,4 @@ dependencies {
     firebase()
     glide()
     implementation project(':core')
-    implementation 'com.android.support:recyclerview-v7:28.0.0'
 }

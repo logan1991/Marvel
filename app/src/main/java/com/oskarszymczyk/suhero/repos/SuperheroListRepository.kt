@@ -3,6 +3,7 @@ package com.oskarszymczyk.suhero.repos
 import com.oskarszymczyk.core.rest.NetworkService
 import com.oskarszymczyk.suhero.data.SuperheroResponse
 import com.oskarszymczyk.suhero.data.parsers.parseToDomain
+import com.oskarszymczyk.suhero.utils.ErrorHandler
 
 //nazwa tutaj scierwi
 class SuperheroListRepository(private val networkService: NetworkService) {
@@ -33,10 +34,8 @@ class SuperheroListRepository(private val networkService: NetworkService) {
                 SuperheroResponse.Results(results.data)
             }
         }catch (exp: Exception){
-            //todo error handling
-            SuperheroResponse.Error("Example Error Message")
+            SuperheroResponse.Error(ErrorHandler.getErrorMessage(exp))
         }
-
     }
 
     suspend fun getNextPage(): SuperheroResponse {
@@ -49,8 +48,7 @@ class SuperheroListRepository(private val networkService: NetworkService) {
                 SuperheroResponse.NoMoreData
             }
         }catch (exp: Exception){
-            //todo error handling
-            SuperheroResponse.Error("Example Error Message")
+            SuperheroResponse.Error(ErrorHandler.getErrorMessage(exp))
         }
     }
 }

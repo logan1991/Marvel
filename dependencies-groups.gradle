@@ -15,11 +15,13 @@ ext {
         implementation deps.kotlin.ktx
         implementation deps.kotlin.coroutines
         implementation deps.kotlin.navigation
+        implementation deps.kotlin.android_coroutines
     }
     support = Group {
         implementation deps.support.app
         implementation deps.support.constraint
         implementation deps.support.lifecycle
+        implementation deps.support.recyclerview
     }
     firebase = Group {
         implementation deps.firebase.firebase

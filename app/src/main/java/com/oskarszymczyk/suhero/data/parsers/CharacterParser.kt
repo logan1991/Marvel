@@ -14,6 +14,7 @@ fun CharacterDataWrapper.parseToDomain(): SuperheroList {
 
 fun Character.parseToDomain(): Superhero {
     return Superhero(
+            id = id,
             name =  name,
             photo = image.createPath())
 }

@@ -14,5 +14,6 @@ ext.versions = [
         'firebase'          : '16.0.0',
         'crashlytics'       : '2.9.5@aar',
         'fabric'            : '1.26.0',
-        'coroutines_adapter': '1.0.0'
+        'coroutines_adapter': '1.0.0',
+        'android_coroutines' :  '0.30.2'
 ]

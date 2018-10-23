@@ -3,29 +3,47 @@ package com.oskarszymczyk.suhero.ui.welcome
 import android.arch.lifecycle.ViewModel
 import android.databinding.ObservableArrayList
 import android.databinding.ObservableBoolean
+import android.databinding.ObservableField
 import android.databinding.ObservableList
 import com.oskarszymczyk.suhero.data.Superhero
 import com.oskarszymczyk.suhero.data.SuperheroResponse
+import com.oskarszymczyk.suhero.ui.welcome.superheromanagement.OnSuperheroDataListener
 import com.oskarszymczyk.suhero.usecases.GetFirstSuperheroPageUseCase
 import com.oskarszymczyk.suhero.usecases.GetSuperheroListUseCase
+import com.oskarszymczyk.suhero.ui.welcome.superheromanagement.SelectedSuperheroManger
+import com.oskarszymczyk.suhero.ui.welcome.superheromanagement.SuperheroData
 import com.oskarszymczyk.suhero.utils.UserInputCallback
-import kotlinx.coroutines.experimental.Job
-import kotlinx.coroutines.experimental.cancelChildren
-import kotlinx.coroutines.experimental.launch
+import kotlinx.coroutines.experimental.*
+import java.util.*
 import javax.inject.Inject
+
 
 class WelcomeViewModel @Inject constructor(
         private val getFirstSuperheroPage: GetFirstSuperheroPageUseCase,
         private val getSuperheroList: GetSuperheroListUseCase,
-        private val userInputCallback: UserInputCallback) : ViewModel() {
+        private val userInputCallback: UserInputCallback,
+        private val selectedSuperheroManger: SelectedSuperheroManger)
+    : ViewModel(), OnSuperheroDataListener {
 
 
     val listData: ObservableList<Superhero> = ObservableArrayList<Superhero>()
     val showScreenProgress = ObservableBoolean(false)
+    val chooseButtonEnable = ObservableBoolean(false)
 
-    private val job = Job()
+    val job = Job()
     private lateinit var lastQuery: String
 
+    lateinit var noMoreData: () -> Unit
+    lateinit var resetAdapterData:() -> Unit
+    lateinit var showToast: (String) -> Unit
+
+    init {
+        selectedSuperheroManger.addObserver(this)
+    }
+
+    override fun updateValue(superheroData: SuperheroData) {
+        chooseButtonEnable.set(true)
+    }
 
     fun onTextChanged(userInput: CharSequence) {
         userInputCallback.waitForInputFinished { startDownloadCharacterList(userInput.toString()) }
@@ -34,9 +52,11 @@ class WelcomeViewModel @Inject constructor(
     private fun startDownloadCharacterList(query: String) {
         if (query.isNotBlank()) {
             showScreenProgress.set(true)
-            launch(job){
-                lastQuery = query
-                listData.clear()
+            lastQuery = query
+            listData.clear()
+            resetAdapterData()
+            chooseButtonEnable.set(false)
+            GlobalScope.launch(Dispatchers.Main + job){
                 handleResponse(getFirstSuperheroPage.execute(lastQuery))
             }
         }
@@ -53,7 +73,7 @@ class WelcomeViewModel @Inject constructor(
     }
 
     private fun hideProgressFromList() {
-        //todo
+        noMoreData()
     }
 
     fun showData(superheroList: List<Superhero>){
@@ -66,17 +86,18 @@ class WelcomeViewModel @Inject constructor(
     }
 
     fun showErrorMessage(message:String){
-        //todo
+        showScreenProgress.set(false)
+        showToast(message)
     }
 
     fun lastItemIsVisible() {
-        launch(job) {
+        GlobalScope.launch(Dispatchers.Main + job) {
             handleResponse(getSuperheroList.execute())
         }
     }
 
     override fun onCleared() {
-        job.cancelChildren()
+        job.cancel()
         super.onCleared()
     }
 }
