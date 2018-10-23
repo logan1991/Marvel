@@ -3,6 +3,7 @@ package com.oskarszymczyk.suhero.di_components
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import com.oskarszymczyk.suhero.base.ViewModelFactory
+import com.oskarszymczyk.suhero.ui.splash.SplashViewModel
 import com.oskarszymczyk.suhero.ui.welcome.WelcomeViewModel
 import dagger.Binds
 import dagger.Module
@@ -15,6 +16,12 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(WelcomeViewModel::class)
     abstract fun bindWelcomeViewModel(welcomeViewModel: WelcomeViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SplashViewModel::class)
+    abstract fun bindSplashViewModel(splashViewModel: SplashViewModel): ViewModel
+
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

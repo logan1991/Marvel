@@ -9,7 +9,7 @@ class AuthenticationInterceptor : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
         var request = chain.request()
-        val timeStamp = System.currentTimeMillis().toString();
+        val timeStamp = System.currentTimeMillis().toString()
         val url = request.url().newBuilder()
                 .addQueryParameter(CoreConst.QUERY_TS, timeStamp)
                 .addQueryParameter(CoreConst.QUERY_API_HEY, CoreConst.PUBLIC_API_KEY)

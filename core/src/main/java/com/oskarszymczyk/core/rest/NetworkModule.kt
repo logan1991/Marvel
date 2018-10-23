@@ -1,6 +1,8 @@
 package com.oskarszymczyk.core.rest
 
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory
 import com.oskarszymczyk.core.rest.interceptors.AuthenticationInterceptor
+import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -20,20 +22,24 @@ class NetworkModule {
 
 
     @Provides
-    fun provideNetworkInterface(okHttpClient: OkHttpClient) =
+    fun provideNetworkInterface(okHttpClient: OkHttpClient, moshi: Moshi) =
             Retrofit.Builder()
                     .baseUrl(CoreConst.BASE_URL)
-                    .addConverterFactory(MoshiConverterFactory.create())
+                    .addConverterFactory(MoshiConverterFactory.create(moshi))
+                    .addCallAdapterFactory(CoroutineCallAdapterFactory())
                     .client(okHttpClient)
                     .build()
 
     @Provides
-    fun profiveOkHttpClient() =
+    fun provideOkHttpClient() =
             OkHttpClient.Builder()
                     .addInterceptor(AuthenticationInterceptor())
                     .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
                     .build()
 
+    @Provides
+    fun provideMoshi() =
+            Moshi.Builder().build()
 
 }
 

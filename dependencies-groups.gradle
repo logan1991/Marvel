@@ -21,6 +21,12 @@ ext {
         implementation deps.support.constraint
         implementation deps.support.lifecycle
     }
+    firebase = Group {
+        implementation deps.firebase.firebase
+        implementation(deps.firebase.crashlytics) {
+            transitive = true
+        }
+    }
     dagger = Group {
         implementation deps.dagger.dagger
         kapt deps.dagger.compiler
@@ -32,7 +38,9 @@ ext {
     networking = Group {
         implementation deps.retrofit.retrofit
         implementation deps.retrofit.moshi
+
         implementation deps.retrofit.converter
+        implementation deps.retrofit.coroutines_adapter
 
         implementation deps.okHttp.okHttp
         implementation deps.okHttp.logging

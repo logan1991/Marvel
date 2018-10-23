@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.oskarszymczyk.suhero.ui.splash.SplashFragment"
+        android:label="splashFragment">
+        <action
+            android:id="@+id/openWelcomeFragment"
+            destination="@id/welcomeFragment"
+            app:destination="@id/welcomeFragment"
+            app:clearTask="true"/>
+        <action
+            android:id="@+id/openMainFragment"
+            destination="@id/mainFragment"
+            app:destination="@id/mainFragment"
+            app:clearTask="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.oskarszymczyk.suhero.ui.welcome.WelcomeFragment"
+        android:label="WelcomeFragment">
+    </fragment>
 
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.oskarszymczyk.suhero.ui.main.MainFragment"
         android:label="MainFragment">
-
     </fragment>
+
 </navigation>
