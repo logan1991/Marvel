@@ -22,6 +22,7 @@ ext {
         implementation deps.support.constraint
         implementation deps.support.lifecycle
         implementation deps.support.recyclerview
+        implementation deps.support.design
     }
     firebase = Group {
         implementation deps.firebase.firebase

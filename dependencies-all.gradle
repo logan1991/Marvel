@@ -21,7 +21,8 @@ ext.deps = [
                 'app'         : "com.android.support:appcompat-v7:$versions.android",
                 'constraint'  : 'com.android.support.constraint:constraint-layout:1.1.2',
                 'lifecycle'   : 'android.arch.lifecycle:extensions:1.1.1',
-                'recyclerview': "com.android.support:recyclerview-v7:$versions.android"
+                'recyclerview': "com.android.support:recyclerview-v7:$versions.android",
+                'design'      : "com.android.support:design:$versions.android"
         ],
         'dagger'  : [
                 'dagger'   : "com.google.dagger:dagger:$versions.dagger2",
