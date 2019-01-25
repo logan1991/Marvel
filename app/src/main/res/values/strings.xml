@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SuHero</string>
+
+    <!--welcome fragment-->
+    <string name="skip">Skip</string>
+    <string name="choose_favourite_superhero">Choose</string>
 </resources>

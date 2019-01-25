@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1021555417320",
+    "firebase_url": "https://marvelcore-251bd.firebaseio.com",
+    "project_id": "marvelcore-251bd",
+    "storage_bucket": "marvelcore-251bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1021555417320:android:50915190cde5d8fc",
+        "android_client_info": {
+          "package_name": "com.oskarszymczyk.core"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1021555417320-j1eav04r6dcfrskbmpqfvfi7v1rmlq4f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuQI4-XGWwTmodofeQhhRW4DXd0gSeVmw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

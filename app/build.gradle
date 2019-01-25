@@ -8,6 +8,10 @@ apply plugin: 'kotlin-kapt'
 
 apply plugin: 'androidx.navigation.safeargs'
 
+apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'io.fabric'
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -28,6 +32,9 @@ android {
     dataBinding {
         enabled true
     }
+    androidExtensions {
+        experimental = true
+    }
 }
 
 dependencies {
@@ -37,6 +44,8 @@ dependencies {
     dagger()
     networking()
     test()
-
+    firebase()
+    glide()
     implementation project(':core')
+    implementation project(':localdata')
 }

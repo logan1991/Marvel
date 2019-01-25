@@ -1,21 +1,28 @@
 ext.deps = [
 
         'build'   : [
-                'gradle'    : "com.android.tools.build:gradle:$versions.gradle",
-                'kotlin'    : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
-                'navigation': "android.arch.navigation:navigation-safe-args-gradle-plugin:$versions.navigation"
+                'gradle'         : "com.android.tools.build:gradle:$versions.gradle",
+                'kotlin'         : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+                'navigation'     : "android.arch.navigation:navigation-safe-args-gradle-plugin:$versions.navigation",
+                'google_services': "com.google.gms:google-services:$versions.google_services",
+                'fabric'         : "io.fabric.tools:gradle:$versions.fabric"
+
         ],
         'libs'    : fileTree(dir: 'libs', include: ['*.jar']),
+
         'kotlin'  : [
                 'lib'       : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin",
                 'coroutines': "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines",
                 'ktx'       : "androidx.core:core-ktx:$versions.ktx",
-                'navigation': "android.arch.navigation:navigation-fragment-ktx:$versions.navigation"
+                'navigation': "android.arch.navigation:navigation-fragment-ktx:$versions.navigation",
+                'android_coroutines' : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.android_coroutines"
         ],
         'support' : [
-                'app'       : "com.android.support:appcompat-v7:$versions.android",
-                'constraint': 'com.android.support.constraint:constraint-layout:1.1.2',
-                'lifecycle' : 'android.arch.lifecycle:extensions:1.1.1'
+                'app'         : "com.android.support:appcompat-v7:$versions.android",
+                'constraint'  : 'com.android.support.constraint:constraint-layout:1.1.2',
+                'lifecycle'   : 'android.arch.lifecycle:extensions:1.1.1',
+                'recyclerview': "com.android.support:recyclerview-v7:$versions.android",
+                'design'      : "com.android.support:design:$versions.android"
         ],
         'dagger'  : [
                 'dagger'   : "com.google.dagger:dagger:$versions.dagger2",
@@ -26,9 +33,10 @@ ext.deps = [
                 'glassfish': 'org.glassfish:javax.annotation:3.1.1'
         ],
         'retrofit': [
-                'moshi'    : "com.squareup.moshi:moshi:$versions.moshi",
-                'retrofit' : "com.squareup.retrofit2:retrofit:$versions.retrofit",
-                'converter': "com.squareup.retrofit2:converter-moshi:$versions.retrofit",
+                'moshi'             : "com.squareup.moshi:moshi:$versions.moshi",
+                'retrofit'          : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+                'converter'         : "com.squareup.retrofit2:converter-moshi:$versions.retrofit",
+                'coroutines_adapter': "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:$versions.coroutines_adapter"
         ],
         'okHttp'  : [
                 'okHttp' : "com.squareup.okhttp3:okhttp:$versions.okhttp",
@@ -38,6 +46,10 @@ ext.deps = [
         'glide'   : [
                 'glide'   : "com.github.bumptech.glide:glide:$versions.glide",
                 'compiler': "com.github.bumptech.glide:compiler:$versions.glide"
+        ],
+        'firebase': [
+                'firebase'   : "com.google.firebase:firebase-core:$versions.firebase",
+                'crashlytics': "com.crashlytics.sdk.android:crashlytics:$versions.crashlytics"
         ],
         'test'    : [
                 'junit'   : 'junit:junit:4.12',
