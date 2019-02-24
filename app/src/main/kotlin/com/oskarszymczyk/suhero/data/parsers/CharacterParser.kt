@@ -2,8 +2,8 @@ package com.oskarszymczyk.suhero.data.parsers
 
 import com.oskarszymczyk.core.rest.models.Character
 import com.oskarszymczyk.core.rest.models.base.CharacterDataWrapper
-import com.oskarszymczyk.localdata.models.Superhero
-import com.oskarszymczyk.localdata.models.SuperheroList
+import com.oskarszymczyk.suhero.data.models.Superhero
+import com.oskarszymczyk.suhero.data.models.SuperheroList
 
 fun CharacterDataWrapper.parseToDomain(): SuperheroList {
     return SuperheroList(

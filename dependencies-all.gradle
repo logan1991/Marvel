@@ -15,7 +15,9 @@ ext.deps = [
                 'coroutines': "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines",
                 'ktx'       : "androidx.core:core-ktx:$versions.ktx",
                 'navigation': "android.arch.navigation:navigation-fragment-ktx:$versions.navigation",
-                'android_coroutines' : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.android_coroutines"
+                'android_coroutines' : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.android_coroutines",
+                'room' : "android.arch.persistence.room:runtime:$versions.arch_room_version",
+                'room_anotiation':"android.arch.persistence.room:compiler:$versions.arch_room_version"
         ],
         'support' : [
                 'app'         : "com.android.support:appcompat-v7:$versions.android",

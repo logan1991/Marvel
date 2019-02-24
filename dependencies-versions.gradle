@@ -1,7 +1,7 @@
 ext.versions = [
         'gradle'            : '3.2.0-rc02',
         'kotlin'            : '1.2.61',
-        'coroutines'        : '0.25.0',
+        'coroutines'        : '0.30.2',
         'ktx'               : '0.1',
         'dagger2'           : '2.16',
         'glide'             : '4.8.0',
@@ -15,5 +15,6 @@ ext.versions = [
         'crashlytics'       : '2.9.5@aar',
         'fabric'            : '1.26.0',
         'coroutines_adapter': '1.0.0',
-        'android_coroutines' :  '0.30.2'
+        'android_coroutines' :  '0.30.2',
+        'arch_room_version' : '1.0.0'
 ]

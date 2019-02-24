@@ -1,4 +1,4 @@
-package com.oskarszymczyk.localdata.models
+package com.oskarszymczyk.suhero.data.models
 
 sealed class SuperheroResponse {
     data class Results(val superheroList: List<Superhero>): SuperheroResponse()

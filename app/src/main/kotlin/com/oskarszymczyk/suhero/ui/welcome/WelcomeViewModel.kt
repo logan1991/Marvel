@@ -5,8 +5,10 @@ import android.databinding.ObservableArrayList
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableList
 import android.view.View
-import com.oskarszymczyk.localdata.models.Superhero
-import com.oskarszymczyk.localdata.models.SuperheroResponse
+import com.oskarszymczyk.localdata.DatabaseManager
+import com.oskarszymczyk.suhero.data.models.Superhero
+import com.oskarszymczyk.suhero.data.models.SuperheroResponse
+import com.oskarszymczyk.suhero.data.models.parseToDbObject
 import com.oskarszymczyk.suhero.extensions.getNavController
 import com.oskarszymczyk.suhero.ui.welcome.superheromanagement.OnSuperheroDataListener
 import com.oskarszymczyk.suhero.usecases.GetFirstSuperheroPageUseCase
@@ -19,6 +21,7 @@ import javax.inject.Inject
 
 
 class WelcomeViewModel @Inject constructor(
+        private val databaseManager: DatabaseManager,
         private val getFirstSuperheroPage: GetFirstSuperheroPageUseCase,
         private val getSuperheroList: GetSuperheroListUseCase,
         private val userInputCallback: UserInputCallback,
@@ -104,8 +107,8 @@ class WelcomeViewModel @Inject constructor(
     }
 
     fun openMainFragmentWithSuperhero(view: View){
+        databaseManager.saveFavouriteHero(choosenSuperhero.parseToDbObject())
         val action = WelcomeFragmentDirections.openMainFragment()
-        action.setSuperhero(choosenSuperhero)
         getNavController().navigate(action)
     }
 
@@ -113,4 +116,5 @@ class WelcomeViewModel @Inject constructor(
         job.cancel()
         super.onCleared()
     }
+
 }

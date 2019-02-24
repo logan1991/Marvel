@@ -1,6 +1,6 @@
 package com.oskarszymczyk.suhero.ui.welcome.superheromanagement
 
-import com.oskarszymczyk.localdata.models.Superhero
+import com.oskarszymczyk.suhero.data.models.Superhero
 
 class SelectedSuperheroManger : SuperheroDataObservable {
 

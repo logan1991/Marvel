@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.oskarszymczyk.suhero.R
-import com.oskarszymczyk.localdata.models.Superhero
+import com.oskarszymczyk.suhero.data.models.Superhero
 import com.oskarszymczyk.suhero.databinding.ItemProgressBinding
 import com.oskarszymczyk.suhero.databinding.ItemSimpleCharacterBinding
 import com.oskarszymczyk.suhero.ui.Refreshable

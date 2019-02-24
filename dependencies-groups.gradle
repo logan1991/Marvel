@@ -16,6 +16,8 @@ ext {
         implementation deps.kotlin.coroutines
         implementation deps.kotlin.navigation
         implementation deps.kotlin.android_coroutines
+        implementation deps.kotlin.room
+        kapt deps.kotlin.room_anotiation
     }
     support = Group {
         implementation deps.support.app

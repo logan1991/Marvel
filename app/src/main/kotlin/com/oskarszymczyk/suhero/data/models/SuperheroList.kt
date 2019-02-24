@@ -1,6 +1,4 @@
-package com.oskarszymczyk.localdata.models
-
-import com.oskarszymczyk.localdata.models.Superhero
+package com.oskarszymczyk.suhero.data.models
 
 data class SuperheroList(
         val total: Int,

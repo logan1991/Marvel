@@ -30,8 +30,6 @@ class MainFragment : DaggerFragment() {
 
         fragmentBinding.viewModel = mainViewModel
 
-        mainViewModel.passAdditionalData(MainFragmentArgs.fromBundle(arguments).superhero)
-
         return fragmentBinding.root
     }
 }

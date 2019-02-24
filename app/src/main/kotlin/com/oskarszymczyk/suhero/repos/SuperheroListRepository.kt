@@ -1,7 +1,7 @@
 package com.oskarszymczyk.suhero.repos
 
 import com.oskarszymczyk.core.rest.NetworkService
-import com.oskarszymczyk.localdata.models.SuperheroResponse
+import com.oskarszymczyk.suhero.data.models.SuperheroResponse
 import com.oskarszymczyk.suhero.data.parsers.parseToDomain
 import com.oskarszymczyk.suhero.utils.ErrorHandler
 

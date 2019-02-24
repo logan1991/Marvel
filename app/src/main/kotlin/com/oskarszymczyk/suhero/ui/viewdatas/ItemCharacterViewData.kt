@@ -3,7 +3,7 @@ package com.oskarszymczyk.suhero.ui.viewdatas
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
 import android.view.View
-import com.oskarszymczyk.localdata.models.Superhero
+import com.oskarszymczyk.suhero.data.models.Superhero
 import com.oskarszymczyk.suhero.ui.welcome.superheromanagement.SelectedSuperheroManger
 
 class ItemCharacterViewData(val selectedSuperheroManger: SelectedSuperheroManger) {

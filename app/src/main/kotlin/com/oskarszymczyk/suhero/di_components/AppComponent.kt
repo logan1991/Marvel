@@ -2,7 +2,7 @@ package com.oskarszymczyk.suhero.di_components
 
 import android.app.Application
 import com.oskarszymczyk.core.rest.NetworkModule
-import com.oskarszymczyk.localdata.SharedPreferencesModule
+import com.oskarszymczyk.localdata.LocalDataModule
 import com.oskarszymczyk.suhero.NavigationFactory
 import com.oskarszymczyk.suhero.SuHeroApplication
 import dagger.BindsInstance
@@ -18,7 +18,7 @@ import javax.inject.Singleton
             AppModule::class,
             AndroidSupportInjectionModule::class,
             NetworkModule::class,
-            SharedPreferencesModule::class,
+            LocalDataModule::class,
             MainActivityModule::class]
 )
 @Singleton
