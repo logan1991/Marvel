@@ -4,4 +4,5 @@
     <!--welcome fragment-->
     <string name="skip">Skip</string>
     <string name="choose_favourite_superhero">Choose</string>
+    <string name="super_hero_hint">Your favourite hero</string>
 </resources>
